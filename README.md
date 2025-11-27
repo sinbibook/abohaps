@@ -1,1 +1,1 @@
-# abohaps
+# template-center-slider
