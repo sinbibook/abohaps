@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.9.0",
-    "generatedAt": "2026-01-27T05:55:40.760Z",
+    "version": "1.10.0",
+    "generatedAt": "2026-03-05T01:20:10.516Z",
     "templateType": "center_slider",
     "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
     "homepageId": "2b1e345f-b106-40ee-94b8-25cfea8b2209"
@@ -49,10 +49,10 @@
       "businessNumber": "565-70-00586",
       "representativeName": "고상길",
       "businessAddress": "인천광역시 강화군 화도면 해안남로 2203",
-      "businessPhone": "",
-      "businessEmail": "",
-      "businessType": "",
-      "businessCategory": "",
+      "businessPhone": "010-8908-1545",
+      "businessEmail": "555@naver.com",
+      "businessType": "individual",
+      "businessCategory": "숙박업",
       "eCommerceRegistrationNumber": ""
     },
     "contractInfo": {
@@ -528,6 +528,7 @@
       "name": "101(2F)",
       "description": "침대원룸형 :침대룸+주방+화장실",
       "roomInfo": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
+      "usageGuide": "",
       "group": null,
       "size": 1,
       "baseOccupancy": 2,
@@ -775,6 +776,7 @@
       "name": "102(2F)",
       "description": "침대원룸형 :침대룸+주방+화장실",
       "roomInfo": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
+      "usageGuide": "",
       "group": null,
       "size": 1,
       "baseOccupancy": 2,
@@ -1029,6 +1031,7 @@
       "name": "103(2F)",
       "description": "복층형 : 거실(침대1)+주방+복층 온돌+화장실1",
       "roomInfo": "",
+      "usageGuide": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
       "group": null,
       "size": 1,
       "baseOccupancy": 2,
@@ -1335,6 +1338,7 @@
       "name": "104(2F)",
       "description": "복층형 : 거실(침대1)+주방+복층 온돌+화장실1",
       "roomInfo": "",
+      "usageGuide": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
       "group": null,
       "size": 1,
       "baseOccupancy": 2,
@@ -1620,6 +1624,7 @@
       "name": "105(1F)",
       "description": "복층형 : 거실(침대1)+주방+복층 온돌+화장실1",
       "roomInfo": "",
+      "usageGuide": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
       "group": null,
       "size": 1,
       "baseOccupancy": 2,
@@ -1854,8 +1859,8 @@
                 "title": "",
                 "images": [
                   {
-                    "id": "7cb27c42-b03e-494f-9017-3e3f202566c4",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/index_hero/1764199980278-y0ii0ntgl8k.jpg",
+                    "id": "f5f98faa-5670-44c9-a9e5-1d714b205393",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/index_hero/1772673572622-fwkbylp5px8.jpg",
                     "sortOrder": 0,
                     "description": "",
                     "isSelected": true
@@ -1950,55 +1955,6 @@
                     "sortOrder": 13,
                     "description": "",
                     "isSelected": true
-                  },
-                  {
-                    "id": "4e42ffd3-1151-426e-8de9-97d16748c850",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/index_hero/1763954084955-f8hm2u0btvc.jpg",
-                    "sortOrder": 14,
-                    "description": "",
-                    "isSelected": false
-                  },
-                  {
-                    "id": "04c12656-cb2f-465e-bb1e-ef8fbd137bb2",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/index_hero/1763954084955-xomlrnzd5x9.jpg",
-                    "sortOrder": 15,
-                    "description": "",
-                    "isSelected": false
-                  },
-                  {
-                    "id": "e5b0cb2a-cd85-4fb1-8194-23d79cfe8b0d",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/index_hero/1763954084956-h487obotd39.jpg",
-                    "sortOrder": 16,
-                    "description": "",
-                    "isSelected": false
-                  },
-                  {
-                    "id": "3fb1ed1a-984b-4d55-956f-36b54d7e1516",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/index_hero/1763954084955-xmmlgj45isa.jpg",
-                    "sortOrder": 17,
-                    "description": "",
-                    "isSelected": false
-                  },
-                  {
-                    "id": "9e332a37-5694-4c26-9a54-e118dacea842",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/index_hero/1763954084955-y435dgx6d8l.jpg",
-                    "sortOrder": 18,
-                    "description": "",
-                    "isSelected": false
-                  },
-                  {
-                    "id": "a4e10708-69b7-46f2-860a-bb2d640c90a1",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/index_hero/1763954084956-oqsk1aw38ld.jpg",
-                    "sortOrder": 19,
-                    "description": "",
-                    "isSelected": false
-                  },
-                  {
-                    "id": "ccadcab5-caa2-4495-a1f8-1fece6a26911",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/index_hero/1763954084956-r1ri71r9ptd.jpg",
-                    "sortOrder": 20,
-                    "description": "",
-                    "isSelected": false
                   }
                 ]
               },
@@ -3692,6 +3648,7 @@
           ]
         }
       ]
-    }
+    },
+    "id": "2b1e345f-b106-40ee-94b8-25cfea8b2209"
   }
 }
