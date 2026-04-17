@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.14.0",
-    "generatedAt": "2026-03-27T07:20:49.015Z",
+    "version": "1.15.0",
+    "generatedAt": "2026-04-17T00:47:52.205Z",
     "templateType": "center_slider",
     "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
     "homepageId": "2b1e345f-b106-40ee-94b8-25cfea8b2209"
@@ -525,18 +525,35 @@
   "rooms": [
     {
       "id": "e7fde2c6-ba5a-433d-8cbe-0c9984b5bf4a",
+      "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
+      "propertyName": "강화 아보하 애견펜션",
       "name": "101(2F)",
+      "nameEn": "101",
       "description": "침대원룸형 :침대룸+주방+화장실",
       "roomInfo": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
       "usageGuide": "",
       "group": null,
       "size": 1,
+      "sizePyeong": 0.3,
       "baseOccupancy": 2,
       "maxOccupancy": 2,
       "totalRoomCount": {
         "bedroom": 1,
         "bathroom": 1,
-        "livingRoom": 0
+        "livingRoom": 1,
+        "ondol": 0,
+        "kitchen": 0
+      },
+      "roomOptions": {
+        "petState": "N",
+        "barbecueState": "N",
+        "poolState": "N"
+      },
+      "timeSettings": {
+        "timeSettingType": "property",
+        "checkin": "15:00",
+        "checkout": "11:00",
+        "checkinDeadline": "22:00"
       },
       "bedTypes": [
         "퀸 베드"
@@ -556,6 +573,7 @@
       "roomViews": [],
       "roomStructures": [],
       "status": "active",
+      "bankAccountId": "bb32b27f-a45c-4f69-9817-8afadfac504e",
       "images": [
         {
           "thumbnail": [
@@ -769,22 +787,43 @@
           ]
         }
       ],
-      "displayOrder": 1
+      "displayOrder": 1,
+      "createdAt": "2025-11-21T01:18:53.363Z",
+      "updatedAt": "2026-02-23T12:56:50.946Z",
+      "createdBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94",
+      "updatedBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94"
     },
     {
       "id": "7d891a4a-297c-4e22-b6e3-980e361d2660",
+      "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
+      "propertyName": "강화 아보하 애견펜션",
       "name": "102(2F)",
+      "nameEn": "102",
       "description": "침대원룸형 :침대룸+주방+화장실",
       "roomInfo": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
       "usageGuide": "",
       "group": null,
       "size": 1,
+      "sizePyeong": 0.3,
       "baseOccupancy": 2,
       "maxOccupancy": 2,
       "totalRoomCount": {
         "bedroom": 1,
         "bathroom": 1,
-        "livingRoom": 0
+        "livingRoom": 1,
+        "ondol": 0,
+        "kitchen": 0
+      },
+      "roomOptions": {
+        "petState": "N",
+        "barbecueState": "N",
+        "poolState": "N"
+      },
+      "timeSettings": {
+        "timeSettingType": "property",
+        "checkin": "15:00",
+        "checkout": "11:00",
+        "checkinDeadline": "22:00"
       },
       "bedTypes": [
         "퀸 베드"
@@ -804,6 +843,7 @@
       "roomViews": [],
       "roomStructures": [],
       "status": "active",
+      "bankAccountId": "bb32b27f-a45c-4f69-9817-8afadfac504e",
       "images": [
         {
           "thumbnail": [
@@ -1024,22 +1064,43 @@
           ]
         }
       ],
-      "displayOrder": 2
+      "displayOrder": 2,
+      "createdAt": "2025-11-21T01:18:53.499Z",
+      "updatedAt": "2026-02-23T12:56:50.946Z",
+      "createdBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94",
+      "updatedBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94"
     },
     {
       "id": "5d358661-5544-4d73-841d-6c02cf689900",
+      "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
+      "propertyName": "강화 아보하 애견펜션",
       "name": "103(2F)",
+      "nameEn": "103",
       "description": "복층형 : 거실(침대1)+주방+복층 온돌+화장실1",
       "roomInfo": "",
       "usageGuide": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
       "group": null,
       "size": 1,
+      "sizePyeong": 0.3,
       "baseOccupancy": 2,
       "maxOccupancy": 4,
       "totalRoomCount": {
         "bedroom": 1,
         "bathroom": 1,
-        "livingRoom": 0
+        "livingRoom": 1,
+        "ondol": 0,
+        "kitchen": 0
+      },
+      "roomOptions": {
+        "petState": "N",
+        "barbecueState": "N",
+        "poolState": "N"
+      },
+      "timeSettings": {
+        "timeSettingType": "property",
+        "checkin": "15:00",
+        "checkout": "11:00",
+        "checkinDeadline": "22:00"
       },
       "bedTypes": [
         "퀸 베드",
@@ -1062,6 +1123,7 @@
         "복층"
       ],
       "status": "active",
+      "bankAccountId": "bb32b27f-a45c-4f69-9817-8afadfac504e",
       "images": [
         {
           "thumbnail": [
@@ -1331,22 +1393,43 @@
           ]
         }
       ],
-      "displayOrder": 3
+      "displayOrder": 3,
+      "createdAt": "2025-11-21T01:23:02.120Z",
+      "updatedAt": "2026-02-23T12:56:50.946Z",
+      "createdBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94",
+      "updatedBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94"
     },
     {
       "id": "c124ea71-3e9e-4665-90c0-5436a4021c81",
+      "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
+      "propertyName": "강화 아보하 애견펜션",
       "name": "104(2F)",
+      "nameEn": "104",
       "description": "복층형 : 거실(침대1)+주방+복층 온돌+화장실1",
       "roomInfo": "",
       "usageGuide": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
       "group": null,
       "size": 1,
+      "sizePyeong": 0.3,
       "baseOccupancy": 2,
       "maxOccupancy": 4,
       "totalRoomCount": {
         "bedroom": 1,
         "bathroom": 1,
-        "livingRoom": 0
+        "livingRoom": 1,
+        "ondol": 0,
+        "kitchen": 0
+      },
+      "roomOptions": {
+        "petState": "N",
+        "barbecueState": "N",
+        "poolState": "N"
+      },
+      "timeSettings": {
+        "timeSettingType": "property",
+        "checkin": "15:00",
+        "checkout": "11:00",
+        "checkinDeadline": "22:00"
       },
       "bedTypes": [
         "퀸 베드",
@@ -1369,6 +1452,7 @@
         "복층"
       ],
       "status": "active",
+      "bankAccountId": "bb32b27f-a45c-4f69-9817-8afadfac504e",
       "images": [
         {
           "thumbnail": [
@@ -1617,22 +1701,43 @@
           ]
         }
       ],
-      "displayOrder": 4
+      "displayOrder": 4,
+      "createdAt": "2025-11-21T01:23:02.075Z",
+      "updatedAt": "2026-02-23T12:56:50.946Z",
+      "createdBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94",
+      "updatedBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94"
     },
     {
       "id": "8c22d531-5597-4581-9481-85e9ba6937a3",
+      "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
+      "propertyName": "강화 아보하 애견펜션",
       "name": "105(1F)",
+      "nameEn": "105",
       "description": "복층형 : 거실(침대1)+주방+복층 온돌+화장실1",
       "roomInfo": "",
       "usageGuide": "- 반려견 용품 기본 제공: 발샴푸,샴푸,강아지 탈취제,배변패드,밥그릇,물그릇,발샤워기,전용 수건\n\n[인원추가(1박기준/현장결제)]\n1인 당 20,000원 (1박기준/현장결제)\n\n[객실 서비스]\n- 전 객실 스탠바이미 구비\n- OTT 이용 가능 (개인 계정 사용)",
       "group": null,
       "size": 1,
+      "sizePyeong": 0.3,
       "baseOccupancy": 2,
       "maxOccupancy": 4,
       "totalRoomCount": {
         "bedroom": 1,
         "bathroom": 1,
-        "livingRoom": 0
+        "livingRoom": 1,
+        "ondol": 0,
+        "kitchen": 0
+      },
+      "roomOptions": {
+        "petState": "N",
+        "barbecueState": "N",
+        "poolState": "N"
+      },
+      "timeSettings": {
+        "timeSettingType": "property",
+        "checkin": "15:00",
+        "checkout": "11:00",
+        "checkinDeadline": "22:00"
       },
       "bedTypes": [
         "퀸 베드",
@@ -1655,6 +1760,7 @@
         "복층"
       ],
       "status": "active",
+      "bankAccountId": "bb32b27f-a45c-4f69-9817-8afadfac504e",
       "images": [
         {
           "thumbnail": [
@@ -1833,7 +1939,11 @@
           ]
         }
       ],
-      "displayOrder": 5
+      "displayOrder": 5,
+      "createdAt": "2025-11-21T01:23:02.038Z",
+      "updatedAt": "2026-02-23T12:56:50.946Z",
+      "createdBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94",
+      "updatedBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94"
     }
   ],
   "homepage": {
@@ -1956,7 +2066,9 @@
                     "description": "",
                     "isSelected": true
                   }
-                ]
+                ],
+                "mediaType": "image",
+                "videos": []
               },
               "closing": {
                 "title": "",
@@ -1968,19 +2080,27 @@
                     "description": "",
                     "isSelected": true
                   }
-                ]
+                ],
+                "mediaType": "image",
+                "videos": []
               },
               "essence": {
                 "title": "",
-                "images": []
+                "images": [],
+                "mediaType": "image",
+                "videos": []
               },
               "gallery": {
                 "title": "",
-                "images": []
+                "images": [],
+                "mediaType": "image",
+                "videos": []
               },
               "signature": {
                 "title": "",
-                "images": []
+                "images": [],
+                "mediaType": "image",
+                "videos": []
               }
             }
           ]
@@ -2142,13 +2262,21 @@
                 "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/popup/1773121340749-b8on00dhu6a.png",
                 "sortOrder": 1,
                 "description": "",
-                "isSelected": true,
+                "isSelected": false,
                 "blockId": "494f39c5-cd81-45d4-b39c-5a7119f8dcbc"
               },
               {
                 "id": "79d7ee7e-06f6-49ac-a1d1-bbaa7a44931b",
                 "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/popup/1767849501212-4p47we7k76a.png",
                 "sortOrder": 2,
+                "description": "",
+                "isSelected": false,
+                "blockId": "494f39c5-cd81-45d4-b39c-5a7119f8dcbc"
+              },
+              {
+                "id": "d6b9f569-1fcb-49b7-86fc-ce39396def90",
+                "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/popup/1776386834799-333gbweiu3m.png",
+                "sortOrder": 3,
                 "description": "",
                 "isSelected": true,
                 "blockId": "494f39c5-cd81-45d4-b39c-5a7119f8dcbc"
@@ -3530,6 +3658,7 @@
           ]
         }
       ]
-    }
+    },
+    "id": "2b1e345f-b106-40ee-94b8-25cfea8b2209"
   }
 }
