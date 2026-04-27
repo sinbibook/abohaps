@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.21.0",
-    "generatedAt": "2026-04-27T08:56:42.863Z",
+    "version": "1.22.0",
+    "generatedAt": "2026-04-27T09:02:53.737Z",
     "templateType": "center_slider",
     "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
     "homepageId": "2b1e345f-b106-40ee-94b8-25cfea8b2209"
@@ -1074,7 +1074,7 @@
       "id": "5d358661-5544-4d73-841d-6c02cf689900",
       "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
       "propertyName": "강화 아보하 애견펜션",
-      "name": "103(2F)",
+      "name": "103(복층,2F)",
       "nameEn": "103",
       "description": "복층형 : 거실(침대1)+주방+복층 온돌+화장실1",
       "roomInfo": "",
@@ -1395,15 +1395,15 @@
       ],
       "displayOrder": 3,
       "createdAt": "2025-11-21T01:23:02.120Z",
-      "updatedAt": "2026-02-23T12:56:50.946Z",
+      "updatedAt": "2026-04-27T09:02:28.350Z",
       "createdBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94",
-      "updatedBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94"
+      "updatedBy": "3a2aa390-fb70-475b-895f-b6e3ea8ef4a2"
     },
     {
       "id": "c124ea71-3e9e-4665-90c0-5436a4021c81",
       "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
       "propertyName": "강화 아보하 애견펜션",
-      "name": "104(2F)",
+      "name": "104(복층,2F)",
       "nameEn": "104",
       "description": "복층형 : 거실(침대1)+주방+복층 온돌+화장실1",
       "roomInfo": "",
@@ -1412,7 +1412,7 @@
       "size": 1,
       "sizePyeong": 0.3,
       "baseOccupancy": 2,
-      "maxOccupancy": 4,
+      "maxOccupancy": 6,
       "totalRoomCount": {
         "bedroom": 1,
         "bathroom": 1,
@@ -1703,9 +1703,9 @@
       ],
       "displayOrder": 4,
       "createdAt": "2025-11-21T01:23:02.075Z",
-      "updatedAt": "2026-02-23T12:56:50.946Z",
+      "updatedAt": "2026-04-27T09:02:39.350Z",
       "createdBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94",
-      "updatedBy": "d3f6de9e-18a3-4b4a-a692-0bceecacad94"
+      "updatedBy": "3a2aa390-fb70-475b-895f-b6e3ea8ef4a2"
     },
     {
       "id": "8c22d531-5597-4581-9481-85e9ba6937a3",
