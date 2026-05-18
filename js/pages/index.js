@@ -1,418 +1,457 @@
 /**
- * Index Page Functionality
- * 메인 페이지 스크롤 애니메이션 및 인터랙션
+ * Index Page Script
+ * - Scroll animations (IntersectionObserver)
+ * - Parallax backgrounds
+ * - Room preview carousel
+ * - Smooth scroll
  */
 
-// Smooth scroll to next section
-function scrollToNextSection() {
-    const nextSection = document.querySelector('.essence-section');
-    if (nextSection) {
-        nextSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+(function() {
+    'use strict';
+
+    function init() {
+        initScrollAnimations();
+        initParallax();
+        initRoomPreviewCarousel();
+        initSmoothScroll();
+        initSpecialSlideshow();
+        initMainSlideshow();
     }
-}
 
-// Enhanced Intersection Observer with React-style Staggered Animations
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    // ==========================================
+    // Scroll Animations (IntersectionObserver)
+    // ==========================================
+    function initScrollAnimations() {
+        var animElements = document.querySelectorAll(
+            '.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale-in, .title-text'
+        );
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Special handling for gallery items with staggered animation
-                if (entry.target.classList.contains('gallery-item')) {
-                    const galleryItems = Array.from(entry.target.parentElement.children);
-                    const index = galleryItems.indexOf(entry.target);
-                    const delays = [0, 0.2, 0.4, 0.6]; // React delay values
+        if (!animElements.length) return;
 
-                    setTimeout(() => {
-                        entry.target.classList.add('animate');
-                    }, (delays[index] || 0) * 1000);
-                } else {
-                    entry.target.classList.add('animate');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
                 }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -60px 0px'
+        });
+
+        animElements.forEach(function(el) {
+            observer.observe(el);
+        });
+    }
+
+    // ==========================================
+    // Parallax Background on Scroll
+    // ==========================================
+    function initParallax() {
+        var parallaxElements = [
+            { selector: '.main-bg', speed: 0.3 }
+        ];
+
+        var items = [];
+        parallaxElements.forEach(function(config) {
+            var el = document.querySelector(config.selector);
+            if (el) {
+                items.push({ el: el, speed: config.speed, parent: el.parentElement });
             }
         });
-    }, observerOptions);
 
-    // Observe all animatable elements
-    document.querySelectorAll('.fade-in-up, .fade-in-scale, .gallery-item, .signature-item, .featured-pool').forEach(el => {
-        observer.observe(el);
-    });
+        if (!items.length) return;
 
-    // Special handling for closing hero text
-    const closingHeroText = document.querySelector('.index-closing-text');
-    if (closingHeroText) {
-        observer.observe(closingHeroText);
-    }
-}
+        var ticking = false;
 
-function initHeroSlider() {
-    const sliderWrapper = document.querySelector('.heroSlider');
-    if (!sliderWrapper || sliderWrapper.dataset.sliderInitialized === 'true') {
-        return;
-    }
-
-    const sliderTrack = sliderWrapper.querySelector('.slider');
-    const slides = sliderTrack ? Array.from(sliderTrack.querySelectorAll('.slide')) : [];
-    if (!sliderTrack || slides.length === 0) {
-        return;
-    }
-
-    sliderWrapper.dataset.sliderInitialized = 'true';
-
-    // 단일 슬라이드인 경우
-    if (slides.length <= 1) {
-        slides.forEach((slide) => {
-            slide.style.position = 'absolute';
-            slide.style.top = '0';
-            slide.style.left = '0';
-            slide.style.width = '100%';
-            slide.style.height = '100%';
-            slide.style.opacity = '1';
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var scrollY = window.pageYOffset;
+                    items.forEach(function(item) {
+                        var rect = item.parent.getBoundingClientRect();
+                        var parentTop = rect.top + scrollY;
+                        var offset = (scrollY - parentTop) * item.speed;
+                        item.el.style.transform = 'translateY(' + offset + 'px)';
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
-        return;
     }
 
-    // fade 슬라이더를 위한 스타일 설정
-    const FADE_DURATION_MS = 800;
-    sliderTrack.style.position = 'relative';
-    slides.forEach((slide, index) => {
-        slide.style.position = 'absolute';
-        slide.style.top = '0';
-        slide.style.left = '0';
-        slide.style.width = '100%';
-        slide.style.height = '100%';
-        slide.style.opacity = index === 0 ? '1' : '0';
-        slide.style.transition = `opacity ${FADE_DURATION_MS / 1000}s ease-in-out`;
-        slide.style.zIndex = index === 0 ? '2' : '1';
-    });
-
-    let currentIndex = 0;
-    let autoSlideTimer = null;
-    let isTransitioning = false;
-
-    const prevButton = sliderWrapper.querySelector('.prev');
-    const nextButton = sliderWrapper.querySelector('.next');
-
-    const goToSlide = (index) => {
-        if (isTransitioning) return;
-
-        const newIndex = (index + slides.length) % slides.length;
-        if (newIndex === currentIndex) return;
-
-        isTransitioning = true;
-
-        // 현재 슬라이드 숨기기
-        slides[currentIndex].style.opacity = '0';
-        slides[currentIndex].style.zIndex = '1';
-
-        // 새 슬라이드 보이기
-        slides[newIndex].style.opacity = '1';
-        slides[newIndex].style.zIndex = '2';
-
-        currentIndex = newIndex;
-
-        setTimeout(() => {
-            isTransitioning = false;
-        }, FADE_DURATION_MS); // 트랜지션 시간과 맞춤
-    };
-
-    const nextSlide = () => {
-        goToSlide(currentIndex + 1);
-    };
-
-    const prevSlide = () => {
-        goToSlide(currentIndex - 1);
-    };
-
-    const startAutoSlide = () => {
-        stopAutoSlide();
-        autoSlideTimer = setInterval(() => {
-            nextSlide();
-        }, 5000);
-    };
-
-    const stopAutoSlide = () => {
-        if (autoSlideTimer) {
-            clearInterval(autoSlideTimer);
-            autoSlideTimer = null;
-        }
-    };
-
-    prevButton?.addEventListener('click', () => {
-        prevSlide();
-        startAutoSlide();
-    });
-
-    nextButton?.addEventListener('click', () => {
-        nextSlide();
-        startAutoSlide();
-    });
-
-    // Desktop hover behavior
-    sliderWrapper.addEventListener('mouseenter', () => {
-        // Only stop auto-slide on desktop
-        if (window.innerWidth > 768) {
-            stopAutoSlide();
-        }
-    });
-    sliderWrapper.addEventListener('mouseleave', () => {
-        // Only restart on desktop
-        if (window.innerWidth > 768) {
-            startAutoSlide();
-        }
-    });
-
-    // Touch swipe support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    sliderWrapper.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    sliderWrapper.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
-
-    const handleSwipe = () => {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swipe left - next slide
-                nextSlide();
-            } else {
-                // Swipe right - previous slide
-                prevSlide();
-            }
-            // Keep auto-slide running on mobile
-            if (window.innerWidth <= 768) {
-                startAutoSlide();
-            }
-        }
-    };
-
-    // resize 이벤트에서는 특별한 처리가 필요하지 않음 (fade 방식)
-
-    // 초기화
-    startAutoSlide();
-}
-
-function initSpecialSlider() {
-    // 상수 정의
-    const MOBILE_BREAKPOINT = 1024;
-    const MOBILE_VISIBLE_SLIDES = 1;
-    const DESKTOP_VISIBLE_SLIDES = 3;
-    const AUTO_SLIDE_INTERVAL_MS = 3000;
-    const SINGLE_SLIDE_THRESHOLD = 1;
-
-    const containers = document.querySelectorAll('.specialSlider');
-
-    containers.forEach((container) => {
-        if (!container || container.dataset.specialSliderInitialized === 'true') {
-            return;
-        }
-
-        const track = container.querySelector('.slider');
+    // ==========================================
+    // Room Preview Carousel
+    // ==========================================
+    function initRoomPreviewCarousel() {
+        var track = document.querySelector('.room-scroll-track');
         if (!track) return;
 
-        const originalSlides = Array.from(track.children);
-        if (originalSlides.length === 0) return;
+        var prevBtn = document.querySelector('.nav-btn.prev');
+        var nextBtn = document.querySelector('.nav-btn.next');
 
-        const prevButton = container.querySelector('.prev');
-        const nextButton = container.querySelector('.next');
+        var speed = 60; // px per second
+        var position = 0;
+        var halfWidth = 0;
+        var cardWidth = 0;
+        var isManualMoving = false;
+        var isRolling = false;
+        var animFrameId = null;
+        var lastTime = null;
 
-        // 유효한 이미지가 있는 슬라이드만 필터링 (empty-image-placeholder는 포함)
-        const validSlides = originalSlides.filter(slide => {
-            const img = slide.querySelector('img');
-            if (!img || !img.src || img.src === '') return false;
-
-            // empty-image-placeholder는 유효한 슬라이드로 처리
-            if (img.classList.contains('empty-image-placeholder')) return true;
-
-            // 빈 이미지나 플레이스홀더 제외 (empty-image-placeholder 제외)
-            const invalidPatterns = [
-                'placeholder',
-                'about:blank',
-                'data:image/gif;base64,R0lGOD', // 빈 gif
-                'undefined'
-            ];
-
-            // data:image/svg+xml이지만 empty-image-placeholder가 아닌 경우만 제외
-            if (img.src.includes('data:image/svg+xml') && !img.classList.contains('empty-image-placeholder')) {
-                return false;
+        function shouldRoll() {
+            var roomCount = parseInt(track.dataset.roomCount || '1', 10);
+            var isSmallScreen = window.innerWidth <= 1000;
+            // 1000px 이하: 2개 이상일 때 롤링, PC: 4개 이상일 때 롤링
+            if (isSmallScreen) {
+                return roomCount >= 2;
             }
-
-            return !invalidPatterns.some(pattern => img.src.includes(pattern)) &&
-                   (img.src.startsWith('http') || img.classList.contains('empty-image-placeholder'));
-        });
-
-        // 슬라이드가 없어도 컨테이너는 숨기지 않음 (empty placeholder가 표시되어야 하므로)
-        if (validSlides.length === 0) {
-            // 모든 슬라이드가 유효하지 않은 경우에만 숨김
-            return;
+            return roomCount >= 4;
         }
 
-        // 단일 슬라이드인 경우
-        if (validSlides.length <= SINGLE_SLIDE_THRESHOLD) {
-            track.innerHTML = '';
-            track.appendChild(validSlides[0].cloneNode(true));
-            if (prevButton) prevButton.style.display = 'none';
-            if (nextButton) nextButton.style.display = 'none';
-            container.dataset.specialSliderInitialized = 'true';
-            return;
+        function measure() {
+            halfWidth = track.scrollWidth / 2;
+            var firstCard = track.querySelector('.room-card');
+            if (firstCard) {
+                cardWidth = firstCard.offsetWidth + 40;
+            }
         }
 
-        // 기본 슬라이더 설정
-        track.innerHTML = '';
-        validSlides.forEach(slide => {
-            track.appendChild(slide.cloneNode(true));
-        });
+        measure();
 
-        const slides = Array.from(track.children);
-        let currentIndex = 0;
-        let autoSlideTimer = null;
-
-        // 반응형 슬라이드 설정
-        const getVisibleSlidesCount = () => window.innerWidth <= MOBILE_BREAKPOINT ? MOBILE_VISIBLE_SLIDES : DESKTOP_VISIBLE_SLIDES;
-
-        const updateSlideLayout = () => {
-            const visibleSlides = getVisibleSlidesCount();
-
-            slides.forEach(slide => {
-                slide.style.flex = `0 0 calc(100% / ${visibleSlides})`;
-                slide.style.minWidth = 0;
-            });
-
-            return visibleSlides;
-        };
-
-        const goToSlide = (index) => {
-            const visibleSlides = updateSlideLayout();
-            currentIndex = Math.max(0, Math.min(index, slides.length - visibleSlides));
-            const slideWidth = container.getBoundingClientRect().width / visibleSlides;
-            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-            updateButtonStates();
-        };
-
-        const updateButtonStates = () => {
-            const visibleSlides = getVisibleSlidesCount();
-
-            if (prevButton) {
-                prevButton.style.opacity = currentIndex === 0 ? '0.3' : '1';
-                prevButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
-            }
-
-            if (nextButton) {
-                nextButton.style.opacity = currentIndex >= slides.length - visibleSlides ? '0.3' : '1';
-                nextButton.style.pointerEvents = currentIndex >= slides.length - visibleSlides ? 'none' : 'auto';
-            }
-        };
-
-        const startAutoSlide = () => {
-            stopAutoSlide();
-            autoSlideTimer = setInterval(() => {
-                const visibleSlides = getVisibleSlidesCount();
-                if (currentIndex >= slides.length - visibleSlides) {
-                    goToSlide(0);
-                } else {
-                    goToSlide(currentIndex + 1);
+        function tick(time) {
+            if (!lastTime) lastTime = time;
+            var delta = (time - lastTime) / 1000;
+            lastTime = time;
+            if (delta > 0.1) delta = 0.016; // 탭 비활성 복귀 시 점프 방지
+            if (!isManualMoving) {
+                position -= speed * delta;
+                if (position <= -halfWidth) {
+                    position += halfWidth;
                 }
-            }, AUTO_SLIDE_INTERVAL_MS);
-        };
-
-        const stopAutoSlide = () => {
-            if (autoSlideTimer) {
-                clearInterval(autoSlideTimer);
-                autoSlideTimer = null;
+                track.style.transform = 'translateX(' + position + 'px)';
             }
-        };
+            animFrameId = requestAnimationFrame(tick);
+        }
 
-        prevButton?.addEventListener('click', () => {
-            goToSlide(currentIndex - 1);
-            startAutoSlide();
-        });
+        function hideDuplicateCards() {
+            var roomCount = parseInt(track.dataset.roomCount || '1', 10);
+            var cards = track.querySelectorAll('.room-card');
+            for (var i = 0; i < cards.length; i++) {
+                cards[i].style.display = i >= roomCount ? 'none' : '';
+            }
+        }
 
-        nextButton?.addEventListener('click', () => {
-            goToSlide(currentIndex + 1);
-            startAutoSlide();
-        });
+        function showAllCards() {
+            var cards = track.querySelectorAll('.room-card');
+            for (var i = 0; i < cards.length; i++) {
+                cards[i].style.display = '';
+            }
+        }
 
-        // 호버 시 자동 슬라이드 멈춤
-        container.addEventListener('mouseenter', () => {
-            if (window.innerWidth > MOBILE_BREAKPOINT) stopAutoSlide();
-        });
+        function startRolling() {
+            if (isRolling) return;
+            isRolling = true;
+            track.closest('.room-grid').classList.remove('no-rolling');
+            showAllCards();
+            track.style.transform = '';
+            position = 0;
+            lastTime = null;
+            measure();
+            animFrameId = requestAnimationFrame(tick);
+        }
 
-        container.addEventListener('mouseleave', () => {
-            if (window.innerWidth > MOBILE_BREAKPOINT) startAutoSlide();
-        });
+        function stopRolling() {
+            if (!isRolling) return;
+            isRolling = false;
+            if (animFrameId) {
+                cancelAnimationFrame(animFrameId);
+                animFrameId = null;
+            }
+            position = 0;
+            track.style.transform = '';
+            track.closest('.room-grid').classList.add('no-rolling');
+            hideDuplicateCards();
+        }
 
-        // 모바일 터치 스와이프
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        container.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            stopAutoSlide();
-        }, { passive: true });
-
-        container.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    goToSlide(currentIndex + 1);
+        function updateRollingState() {
+            measure();
+            if (shouldRoll()) {
+                startRolling();
+            } else {
+                // stopRolling은 isRolling guard가 있으므로 직접 처리
+                if (isRolling) {
+                    stopRolling();
                 } else {
-                    goToSlide(currentIndex - 1);
+                    track.closest('.room-grid').classList.add('no-rolling');
+                    hideDuplicateCards();
                 }
             }
-            startAutoSlide();
-        }, { passive: true });
+        }
 
-        // 창 크기 변경 시 재조정
-        window.addEventListener('resize', () => {
-            goToSlide(currentIndex);
-        });
+        updateRollingState();
 
-        // 초기화
-        goToSlide(0);
-        startAutoSlide();
-        container.dataset.specialSliderInitialized = 'true';
-    });
-}
+        function manualMove(direction) {
+            if (!isRolling) return;
+            isManualMoving = true;
+            var target = position + (direction * cardWidth);
 
-// 전역으로 노출
-window.initHeroSlider = initHeroSlider;
-window.initSpecialSlider = initSpecialSlider;
+            var start = position;
+            var distance = target - start;
+            var duration = 400;
+            var startTime = null;
 
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initScrollAnimations();
+            function animate(time) {
+                if (!startTime) startTime = time;
+                var elapsed = time - startTime;
+                var progress = Math.min(elapsed / duration, 1);
+                var ease = progress < 0.5
+                    ? 2 * progress * progress
+                    : -1 + (4 - 2 * progress) * progress;
 
-    // iframe 환경(어드민 미리보기)에서는 PreviewHandler가 초기화 담당
-    if (!window.APP_CONFIG.isInIframe()) {
-        // 일반 환경: IndexMapper가 직접 초기화
-        const indexMapper = new IndexMapper();
-        indexMapper.initialize()
-            .then(() => {
-                initHeroSlider();
-                initSpecialSlider();
-            })
-            .catch(() => {
-                initHeroSlider();
-                initSpecialSlider();
+                position = start + distance * ease;
+
+                if (position <= -halfWidth) {
+                    position += halfWidth;
+                } else if (position > 0) {
+                    position -= halfWidth;
+                }
+
+                track.style.transform = 'translateX(' + position + 'px)';
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    isManualMoving = false;
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                if (!isManualMoving) manualMove(1);
             });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                if (!isManualMoving) manualMove(-1);
+            });
+        }
+
+        window.addEventListener('resize', function() {
+            updateRollingState();
+        });
     }
-    // iframe 환경에서는 PreviewHandler가 initHeroSlider/initSpecialSlider 호출
-});
+
+    // ==========================================
+    // Smooth Scroll
+    // ==========================================
+    function initSmoothScroll() {
+        var links = document.querySelectorAll('a[href^="#"]');
+
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var href = this.getAttribute('href');
+                if (href === '#') return;
+
+                e.preventDefault();
+                var target = document.querySelector(href);
+
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    }
+
+    // ==========================================
+    // Special Slideshow (Content-3 Image Rolling)
+    // ==========================================
+    function initSpecialSlideshow() {
+        var content3 = document.querySelector('.content-3');
+        if (!content3) return;
+
+        var slides = content3.querySelectorAll('.meditation-image .facility-slide');
+        var total = slides.length;
+        if (total === 0) return;
+
+        var current = 0;
+        var progress = content3.querySelector('.bar-progress');
+        var barBtns = content3.querySelectorAll('.bar-controls button');
+
+        function showSlide(index) {
+            var containers = ['.meditation-image', '.meditation-info', '.special-right-image'];
+            containers.forEach(function(sel) {
+                content3.querySelectorAll(sel + ' .facility-slide').forEach(function(el, i) {
+                    el.classList.toggle('active', i === index);
+                });
+            });
+        }
+
+        showSlide(0);
+
+        if (progress) {
+            progress.addEventListener('animationiteration', function() {
+                current = (current + 1) % total;
+                showSlide(current);
+            });
+        }
+
+        function restartProgress() {
+            if (!progress) return;
+            progress.style.animation = 'none';
+            progress.offsetHeight;
+            progress.style.animation = '';
+        }
+
+        if (barBtns.length >= 2) {
+            barBtns[0].addEventListener('click', function() {
+                current = (current - 1 + total) % total;
+                showSlide(current);
+                restartProgress();
+            });
+            barBtns[1].addEventListener('click', function() {
+                current = (current + 1) % total;
+                showSlide(current);
+                restartProgress();
+            });
+        }
+    }
+
+    // ==========================================
+    // Main Hero Slideshow
+    // ==========================================
+    function initMainSlideshow() {
+        var arrow = document.querySelector('.main-arrow');
+        var progress = document.querySelector('.title-divider .bar-progress');
+
+        // video 모드: 슬라이드 없음 → 화살표/progress 숨기고 종료
+        var heroVideo = document.querySelector('[data-hero-slider] [data-hero-video]');
+        if (heroVideo) {
+            if (arrow) arrow.style.display = 'none';
+            if (progress) progress.style.display = 'none';
+            return;
+        }
+
+        // image 모드: 화살표/progress 복원
+        if (arrow) arrow.style.display = '';
+        if (progress) progress.style.display = '';
+
+        var slides = document.querySelectorAll('.main-slide');
+        if (slides.length === 0) return;
+
+        // 슬라이드 1개: active만 붙이고 화살표 숨김 후 종료
+        if (slides.length === 1) {
+            slides[0].classList.add('active');
+            var arrow = document.querySelector('.main-arrow');
+            if (arrow) arrow.style.display = 'none';
+            return;
+        }
+
+        var bg = document.querySelector('.main-bg');
+        var progress = document.querySelector('.title-divider .bar-progress');
+        var arrowNums = document.querySelectorAll('.main-arrow .arrow-number');
+        var arrowLeft = document.querySelector('.main-arrow .arrow-left');
+        var arrowRight = document.querySelector('.main-arrow .arrow-right');
+        var current = 0;
+        var total = slides.length;
+
+        function padNum(n) {
+            return n < 10 ? '0' + n : '' + n;
+        }
+
+        function updateNumbers() {
+            if (arrowNums.length >= 2) {
+                arrowNums[0].textContent = padNum(current + 1);
+                arrowNums[1].textContent = padNum(total);
+            }
+        }
+
+        // 모바일: overflow-x scroll 컨테이너인지 확인
+        function isMobileScroll() {
+            return bg && bg.scrollWidth > bg.clientWidth;
+        }
+
+        function goTo(index) {
+            slides[current].classList.remove('active');
+            current = (index + total) % total;
+            slides[current].classList.add('active');
+            updateNumbers();
+            // 모바일: CSS scroll snap 컨테이너를 직접 스크롤
+            if (isMobileScroll()) {
+                bg.scrollTo({ left: current * bg.offsetWidth, behavior: 'smooth' });
+            }
+        }
+
+        function restartProgress() {
+            if (!progress) return;
+            progress.style.animation = 'none';
+            progress.offsetHeight;
+            progress.style.animation = '';
+        }
+
+        updateNumbers();
+
+        slides[0].classList.add('active');
+
+        if (progress) {
+            progress.addEventListener('animationiteration', function() {
+                goTo(current + 1);
+            });
+        }
+
+        // 모바일: 사용자 스와이프로 슬라이드 변경 시 current 동기화
+        if (bg) {
+            var scrollTimer;
+            bg.addEventListener('scroll', function() {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(function() {
+                    var snapped = Math.round(bg.scrollLeft / bg.offsetWidth);
+                    if (snapped !== current && snapped >= 0 && snapped < total) {
+                        slides[current].classList.remove('active');
+                        current = snapped;
+                        slides[current].classList.add('active');
+                        updateNumbers();
+                        restartProgress();
+                    }
+                }, 150);
+            });
+        }
+
+        if (arrowLeft) {
+            arrowLeft.style.cursor = 'pointer';
+            arrowLeft.addEventListener('click', function() {
+                goTo(current - 1);
+                restartProgress();
+            });
+        }
+
+        if (arrowRight) {
+            arrowRight.style.cursor = 'pointer';
+            arrowRight.addEventListener('click', function() {
+                goTo(current + 1);
+                restartProgress();
+            });
+        }
+    }
+
+    // Initialize
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // 매퍼에서 슬라이더 재초기화 시 사용
+    window.initHeroSlider = initMainSlideshow;
+    window.initRoomCarousel = initRoomPreviewCarousel;
+    window.initFacilitySlideshow = initSpecialSlideshow;
+})();

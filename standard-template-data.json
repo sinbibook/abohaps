@@ -1,14 +1,15 @@
 {
   "metadata": {
-    "version": "1.29.0",
-    "generatedAt": "2026-05-18T06:54:14.108004015Z",
-    "templateType": "center_slider",
+    "version": "1.30.0",
+    "generatedAt": "2026-05-18T06:54:38.538392677Z",
+    "templateType": "fullpage_visual",
     "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
     "homepageId": "2b1e345f-b106-40ee-94b8-25cfea8b2209"
   },
   "property": {
     "id": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
     "name": "강화 아보하 애견펜션",
+    "nameEn": "Ganghwa Aboha Pet-Friendly Pension",
     "description": "아보하의 이름처럼, 특별한 하루보다\n가족과, 반려견과 함께하는\n아주 보통의 하루가 더 소중하니까요.\n\n평범한 하루가\n가장 값진 기억이 될 수 있도록,\n아보하가 함께하겠습니다",
     "subtitle": "반려견과 함께 힐링할 수 있는 아보하",
     "address": "인천광역시 강화군 화도면 해안남로 2203",
@@ -23,6 +24,9 @@
     "reservationGuide": "미성년자는 보호자 없이 예약 및 입실 불가하며, 위반 시 환불 없이 퇴실됩니다.\n객실 요금은 기준 인원 기준이며, 초과 시 추가 요금이 발생합니다.\n최대 인원 초과 시 입실 불가하며, 이로 인한 환불은 불가입니다. (유아, 어린이 포함)\n현장 추가 요금은 숙소 측에 사전 확인 바랍니다.\n수영장 등 부대시설은 날씨나 상황에 따라 이용이 제한될 수 있으니 사전 확인 바랍니다.\n당일 예약 후 취소 시 환불 불가하며, 늦은 시간 당일 예약 후 즉시 방문 시 입실 불가할 수 있으니 숙소 확인 후 예약해 주세요.\n취소 수수료는 구매처마다 다를 수 있습니다.\n시스템 오류로 인해 정상가와 다른 금액으로 예약이 진행된 경우, 부득이하게 예약이 취소될 수 있습니다.\n전 객실 금연이며, 흡연은 지정된 장소에서만 가능합니다.",
     "province": "인천광역시",
     "city": "강화군",
+    "domain": "abohaps.kr",
+    "realtimeBookingId": "https://map.naver.com/p/entry/place/2014433137",
+    "ybsId": "78802",
     "amenities": [
       "WiFi",
       "주차장",
@@ -542,11 +546,7 @@
         "surrounding": [ ],
         "commonArea": [ ]
       }
-    ],
-    "nameEn": "Ganghwa Aboha Pet-Friendly Pension",
-    "domain": "abohaps.kr",
-    "realtimeBookingId": "https://map.naver.com/p/entry/place/2014433137",
-    "ybsId": "78802"
+    ]
   },
   "rooms": [
     {
@@ -2087,6 +2087,7 @@
     }
   ],
   "homepage": {
+    "id": "2b1e345f-b106-40ee-94b8-25cfea8b2209",
     "domain": "abohaps.kr",
     "templateType": "fullpage_visual",
     "images": [
@@ -2547,7 +2548,31 @@
           }
         ]
       },
+      "theme": {
+        "font": {
+          "koMain": {
+            "cdn": null,
+            "key": "cafe24gowoonbam",
+            "woff2": "https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff",
+            "family": "Cafe24Gowoonbam"
+          },
+          "koSub": {
+            "cdn": "https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css",
+            "key": "pretendard",
+            "woff2": null,
+            "family": "Pretendard"
+          },
+          "enMain": {
+            "cdn": "https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap",
+            "key": "cormorant",
+            "woff2": null,
+            "family": "Cormorant"
+          }
+        },
+        "color": null
+      },
       "property": {
+        "name": "강화 아보하 애견펜션",
         "images": [
           {
             "id": "20ff936d-765d-4308-b031-ac06486de06f",
@@ -2613,7 +2638,6 @@
             "category": "property_exterior"
           }
         ],
-        "name": "강화 아보하 애견펜션",
         "nameEn": "Ganghwa Aboha Pet-Friendly Pension"
       },
       "roomtypes": [
@@ -3443,31 +3467,7 @@
             }
           ]
         }
-      ],
-      "theme": {
-        "font": {
-          "koSub": {
-            "cdn": "https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css",
-            "key": "pretendard",
-            "woff2": null,
-            "family": "Pretendard"
-          },
-          "enMain": {
-            "cdn": "https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap",
-            "key": "cormorant",
-            "woff2": null,
-            "family": "Cormorant"
-          },
-          "koMain": {
-            "cdn": null,
-            "key": "cafe24gowoonbam",
-            "woff2": "https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff",
-            "family": "Cafe24Gowoonbam"
-          }
-        },
-        "color": null
-      }
-    },
-    "id": "2b1e345f-b106-40ee-94b8-25cfea8b2209"
+      ]
+    }
   }
 }
