@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.44.0",
-    "generatedAt": "2026-07-13T03:20:18.405179557Z",
+    "version": "1.45.0",
+    "generatedAt": "2026-07-13T03:22:20.409197976Z",
     "templateType": "fullpage_visual",
     "propertyId": "f9520fa3-9bad-47b7-8e66-75df80ca1bad",
     "homepageId": "2b1e345f-b106-40ee-94b8-25cfea8b2209"
@@ -1829,49 +1829,17 @@
                 "title": "Reservation",
                 "images": [
                   {
-                    "id": "09069c7a-ea25-4b89-8294-3ccd2544c2d0",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/reservation_hero/1764200365150-9ylt9qgm9bm.jpeg",
+                    "id": "9b868e6e-2661-4664-9e75-acf522799d85",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/reservation_hero/1783912938618-cbve2aa90e.jpg",
                     "sortOrder": 0,
-                    "description": " ",
+                    "description": "",
                     "isSelected": true,
                     "blockId": null
                   },
                   {
-                    "id": "b8e1d67c-ba24-4e07-8810-4767a8dfd09e",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/reservation_hero/1764200365149-oq1obg2w9x.jpeg",
+                    "id": "add8abde-93a8-4fb9-a305-9b83c641a887",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/reservation_hero/1783912938614-6w60kos07p.jpg",
                     "sortOrder": 1,
-                    "description": "",
-                    "isSelected": true,
-                    "blockId": null
-                  },
-                  {
-                    "id": "a27f5d7b-c88e-4cb0-a9fc-cc0c051ceff7",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/reservation_hero/1764200365150-izsz4vdyu4b.jpg",
-                    "sortOrder": 2,
-                    "description": "",
-                    "isSelected": true,
-                    "blockId": null
-                  },
-                  {
-                    "id": "c1dd73ee-0b5f-4354-9600-bb0ee401977b",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/reservation_hero/1764200321038-sunwpimvant.jpg",
-                    "sortOrder": 3,
-                    "description": "",
-                    "isSelected": true,
-                    "blockId": null
-                  },
-                  {
-                    "id": "f718eb69-79e4-4c95-a571-9a0c7a526f31",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/reservation_hero/1764200321038-086k08iow2ni.jpg",
-                    "sortOrder": 4,
-                    "description": "",
-                    "isSelected": true,
-                    "blockId": null
-                  },
-                  {
-                    "id": "5b18e931-d1d8-4e77-b681-ed5fd561cc18",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/2b1e345f-b106-40ee-94b8-25cfea8b2209/reservation_hero/1764200321038-7o6g3t5qz5.jpg",
-                    "sortOrder": 5,
                     "description": "",
                     "isSelected": true,
                     "blockId": null
